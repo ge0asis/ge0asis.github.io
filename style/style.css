@@ -379,5 +379,31 @@ header h2 {
       margin-bottom: 0;
     }
   }
+.contact-button {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.contact-button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-button a:hover {
+  background-color: #22c65a;
+  transform: scale(1.1);
+}
+
+.contact-button i {
+  margin-right: 10px;
+}
 
   
