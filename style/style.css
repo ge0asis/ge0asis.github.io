@@ -1,0 +1,383 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+
+    
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Estilos para el encabezado */
+  header {
+    background-color: #011120;
+    color: #000000;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  header img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  header h1,
+/* Estilos para el encabezado h2 en el header */
+header h2 {
+    margin: 20px 0; /* Aumentamos el espaciado entre el encabezado y otros elementos */
+    font-weight: 100; /* Cambiamos el peso de la fuente a 600 para un aspecto más equilibrado */
+    font-size: 1.5rem; /* Ajustamos el tamaño de la fuente */
+    color: #333; /* Cambiamos el color del texto a un tono de gris más oscuro para una apariencia profesional */
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px; /* Aumentamos ligeramente el espaciado entre letras para una mejor legibilidad */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Utilizamos una fuente moderna y profesional */
+  }
+  
+
+  /* Estilos para la navegación */
+  nav {
+    background-color: #00064d;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #30a326;
+  }
+  nav ul {
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    nav ul {
+      flex-wrap: nowrap;
+    }
+  
+    nav ul li {
+      margin-right: 30px;
+    }
+  }
+  
+  /* Estilos adicionales... */
+  section {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #003049;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  
+  .btn:hover {
+    background-color: #004d6a;
+  }
+  
+  footer {
+    background-color: #003049;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  /* Estilos para la sección de servicios */
+  .servicio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .servicio-imagen {
+    flex: 1;
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  .servicio-imagen img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .servicio-descripcion {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .servicio-descripcion h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .servicio-descripcion p {
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .servicio {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .servicio-imagen {
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .servicio {
+      flex-direction: row;
+      text-align: left;
+    }
+  
+    .servicio-imagen {
+      margin-bottom: 0;
+    }
+  }
+  
+  /* Estilos para la sección de nosotros */
+  
+  #nosotros {
+    background-color: #f2f2f2;
+  }
+  
+  #nosotros h2 {
+    margin-bottom: 60px;
+  }
+  
+  /* Estilos adicionales según sea necesario */
+  
+  /* Estilos para la sección de contacto */
+  
+  #contacto {
+    background-color: #f2f2f2;
+  }
+  
+  #contacto h2 {
+    margin-bottom: 60px;
+  }
+  
+  .informacion-contacto {
+    margin-bottom: 60px;
+  }
+  
+  .informacion-contacto p {
+    margin: 10px 0;
+  }
+  
+  .formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .formulario-contacto input,
+  .formulario-contacto textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    font-size: 16px;
+  }
+  
+  .formulario-contacto button {
+    width: 50%;
+    padding: 15px;
+    background-color: #003049;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+  }
+  
+  .formulario-contacto button:hover {
+    background-color: #004d6a;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .formulario-contacto button {
+      width: 100%;
+    }
+  }
+  
+
+/* Estilos para el nombre de la empresa */
+.geoasis {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #ffffff; /* Color azul de Google */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  /* Estilos para la animación de texto */
+  .geoasis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background-color: #42d9f42f; /* Color azul de Google */
+    transform: skewX(-20deg);
+    transform-origin: bottom left;
+    animation: text-animation 5s ease-in-out infinite; /* Animación más lenta */
+    z-index: -1;
+  }
+  
+  @keyframes text-animation {
+    0% {
+      transform: skewX(-20deg) translateX(-100%);
+    }
+    50% {
+      transform: skewX(-20deg) translateX(0);
+    }
+    100% {
+      transform: skewX(-20deg) translateX(100%);
+    }
+  }
+/* Estilos para el lema */
+.lema {
+    font-family: 'Helvetica Neue', sans-serif; /* Cambiamos la fuente a Helvetica Neue para un estilo más similar al de Apple */
+    font-weight: 600; /* Reducimos ligeramente el peso de la fuente */
+    font-size: 2.8rem; /* Ajustamos el tamaño de la fuente */
+    color: #ffffff; /* Cambiamos el color del texto a negro para un aspecto más clásico */
+    letter-spacing: 0.5px; /* Reducimos el espaciado entre letras para mayor legibilidad */
+    text-align: center;
+    margin: 20px auto;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+
+
+  /* Estilos generales */
+
+
+  
+  #equipo {
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .miembros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .miembro {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .miembro img {
+    width: 150px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 150px; /* Ajusta el tamaño de la imagen según sea necesario */
+    border-radius: 50%; /* Para imágenes redondas */
+    object-fit: contain; /* Ajusta la imagen al contenedor circular sin deformarla */
+    object-position: center top; /* Ajusta la posición de la imagen dentro del contenedor circular */
+  }
+  
+  .miembro h3 {
+    margin: 10px 0;
+  }
+  
+  .miembro p {
+    margin: 0;
+  }
+  #equipo {
+    padding: 30px 0;
+  }
+  
+  .miembros {
+    flex-wrap: wrap;
+  }
+  
+  .miembro {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    #equipo {
+      padding: 50px 0;
+    }
+  
+    .miembros {
+      flex-wrap: nowrap;
+    }
+  
+    .miembro {
+      width: calc(33.333% - 40px);
+      margin-bottom: 0;
+    }
+  }
+
+  
