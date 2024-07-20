@@ -451,5 +451,26 @@ header h2 {
 .boton:hover {
   background-color: #2980b9;
 }
+/* Estilos generales para los videos */
+.video {
+  margin: 20px 0; /* Espaciado arriba y abajo del video */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f8f8f8; /* Color de fondo claro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  text-align: center; /* Centrar el contenido */
+}
 
-  
+/* Hacer que el video se ajuste al contenedor */
+.video iframe {
+  width: 100%;
+  height: auto;
+  border: none; /* Eliminar borde por defecto */
+}
+
+/* Asegurarse de que el contenedor del video sea responsivo */
+@media (max-width: 768px) {
+  .video iframe {
+    height: 200px; /* Ajuste de altura para pantallas pequeñas */
+  }
+}
