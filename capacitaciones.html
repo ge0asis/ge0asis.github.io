@@ -828,6 +828,82 @@
     </button>
 
     <script src="js/cart-logic.js" charset="UTF-8" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Function to handle WhatsApp opening
+            window.shareProductWhatsApp = function(btn) {
+                const card = btn.closest('.software-card') || btn.closest('.course-card');
+                if(!card) return;
+                
+                const titleEl = card.querySelector('.software-name') || card.querySelector('.course-title');
+                const priceEl = card.querySelector('.software-price') || card.querySelector('.course-price');
+                
+                const name = titleEl ? titleEl.innerText : 'Producto';
+                const price = priceEl ? priceEl.innerText : 'Consultar precio';
+                
+                // Get the id from the card
+                const cardId = card.id;
+                
+                // Construct URL correctly with https://ge0asis.github.io/
+                const baseUrl = 'https://ge0asis.github.io/capacitaciones.html';
+                const productUrl = cardId ? `${baseUrl}#${cardId}` : baseUrl;
+                
+                let text = `🚀 ¡Descubre *${name}*!\n\n`;
+                text += `Herramienta profesional para optimizar tus proyectos.\n\n`;
+                text += `💰 Precio: ${price}\n\n`;
+                text += `👉 Adquiérelo y mira más detalles aquí:\n🔗 ${productUrl}`;
+                
+                const encodedText = encodeURIComponent(text);
+                window.open(`https://api.whatsapp.com/send?text=${encodedText}`, '_blank');
+            };
+
+            // Add ID and button to all cards dynamically
+            const cards = document.querySelectorAll('.software-card, .course-card');
+            cards.forEach((card, index) => {
+                // Try to extract ID from the addToCart button
+                const addBtn = card.querySelector('.add-software-btn') || card.querySelector('.add-course-btn');
+                let id = 'item-' + index;
+                if(addBtn) {
+                    const match = addBtn.getAttribute('onclick').match(/,\s*'([^']+)'\s*,/);
+                    if(match && match[1]) {
+                        id = match[1];
+                    }
+                }
+                card.id = id;
+                
+                // Append Share button
+                const shareBtn = document.createElement('button');
+                shareBtn.className = 'share-btn';
+                shareBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Compartir Producto';
+                shareBtn.onclick = function() { shareProductWhatsApp(this); };
+                
+                // Style to match exactly
+                shareBtn.style.cssText = "display: block; width: 100%; padding: 12px; background: #25D366; color: white; border-radius: 12px; font-weight: 600; text-decoration: none; margin-top: 10px; text-align: center; border: none; font-size: 15px; cursor: pointer; transition: all 0.2s ease;";
+                
+                shareBtn.onmouseover = function() { this.style.backgroundColor = '#20ba5a'; };
+                shareBtn.onmouseout = function() { this.style.backgroundColor = '#25D366'; };
+                
+                // Insert after the Video button or at the end
+                const cardBody = card.querySelector('.course-body') || card;
+                cardBody.appendChild(shareBtn);
+            });
+            
+            // Highlight card if accessed via ID hash
+            if(window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const targetCard = document.getElementById(targetId);
+                if(targetCard) {
+                    targetCard.style.border = '2px solid #25D366';
+                    targetCard.style.boxShadow = '0 0 20px rgba(37, 211, 102, 0.4)';
+                    targetCard.style.transform = 'scale(1.02)';
+                    targetCard.style.transition = 'all 0.5s ease';
+                    setTimeout(() => {
+                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
