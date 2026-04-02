@@ -403,7 +403,8 @@
                     onclick="addToCart('Numerador Catastral', 80, 'soft2', 'software', 'Plugin QGIS - Numerador Catastral')">
                     Agregar al Carrito
                 </button>
-                <a href="https://www.youtube.com/watch?v=E7IRTnUxark" class="video-btn" target="_blank">📺 Ver Video Demo</a>
+                <a href="https://www.youtube.com/watch?v=E7IRTnUxark" class="video-btn" target="_blank">📺 Ver Video
+                    Demo</a>
             </div>
 
             <!-- Software 3 -->
@@ -566,6 +567,25 @@
                     Agregar al Carrito
                 </button>
                 <a href="#" class="video-btn" target="_blank">📺 Ver Video Demo</a>
+            </div>
+
+            <!-- Software 12 -->
+            <div class="software-card">
+                <div class="software-icon">🏔️</div>
+                <h3 class="software-name">Plugin QGIS: Punto Más Alto y Más Bajo</h3>
+                <p class="software-description">Encuentra el Punto MÁS ALTO y MÁS BAJO dentro de un Polígono usando el
+                    DEM</p>
+                <ul class="software-features">
+                    <li>Análisis directo con modelos de elevación digital (DEM)</li>
+                    <li>Identificación automática de cotas máximas y mínimas</li>
+                    <li>Ideal para proyectos topográficos y obras</li>
+                </ul>
+                <div class="software-price">S/ 40</div>
+                <button class="add-software-btn"
+                    onclick="addToCart('Plugin QGIS: Punto Más Alto y Más Bajo', 40, 'soft12', 'software', 'Punto más alto y más bajo en polígono')">
+                    Agregar al Carrito
+                </button>
+                <a href="https://youtu.be/gb5l6nUP9zU" class="video-btn" target="_blank">📺 Ver Video Demo</a>
             </div>
         </div>
     </section>
@@ -831,28 +851,28 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Function to handle WhatsApp opening
-            window.shareProductWhatsApp = function(btn) {
+            window.shareProductWhatsApp = function (btn) {
                 const card = btn.closest('.software-card') || btn.closest('.course-card');
-                if(!card) return;
-                
+                if (!card) return;
+
                 const titleEl = card.querySelector('.software-name') || card.querySelector('.course-title');
                 const priceEl = card.querySelector('.software-price') || card.querySelector('.course-price');
-                
+
                 const name = titleEl ? titleEl.innerText : 'Producto';
                 const price = priceEl ? priceEl.innerText : 'Consultar precio';
-                
+
                 // Get the id from the card
                 const cardId = card.id;
-                
+
                 // Construct URL correctly with https://ge0asis.github.io/
                 const baseUrl = 'https://ge0asis.github.io/capacitaciones.html';
                 const productUrl = cardId ? `${baseUrl}#${cardId}` : baseUrl;
-                
+
                 let text = `🚀 ¡Descubre *${name}*!\n\n`;
                 text += `Herramienta profesional para optimizar tus proyectos.\n\n`;
                 text += `💰 Precio: ${price}\n\n`;
                 text += `👉 Adquiérelo y mira más detalles aquí:\n🔗 ${productUrl}`;
-                
+
                 const encodedText = encodeURIComponent(text);
                 window.open(`https://api.whatsapp.com/send?text=${encodedText}`, '_blank');
             };
@@ -863,39 +883,39 @@
                 // Try to extract ID from the addToCart button
                 const addBtn = card.querySelector('.add-software-btn') || card.querySelector('.add-course-btn');
                 let id = 'item-' + index;
-                if(addBtn) {
+                if (addBtn) {
                     const match = addBtn.getAttribute('onclick').match(/,\s*'([^']+)'\s*,/);
-                    if(match && match[1]) {
+                    if (match && match[1]) {
                         id = match[1];
                     }
                 }
                 card.id = id;
-                
+
                 // Append Share button
                 const shareBtn = document.createElement('button');
                 shareBtn.className = 'share-btn';
                 shareBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Compartir Producto';
-                shareBtn.onclick = function() { shareProductWhatsApp(this); };
-                
+                shareBtn.onclick = function () { shareProductWhatsApp(this); };
+
                 // Style to match exactly
                 shareBtn.style.cssText = "display: block; width: 100%; padding: 12px; background: #25D366; color: white; border-radius: 12px; font-weight: 600; text-decoration: none; margin-top: 10px; text-align: center; border: none; font-size: 15px; cursor: pointer; transition: all 0.2s ease;";
-                
-                shareBtn.onmouseover = function() { this.style.backgroundColor = '#20ba5a'; };
-                shareBtn.onmouseout = function() { this.style.backgroundColor = '#25D366'; };
-                
+
+                shareBtn.onmouseover = function () { this.style.backgroundColor = '#20ba5a'; };
+                shareBtn.onmouseout = function () { this.style.backgroundColor = '#25D366'; };
+
                 // Insert after the Video button or at the end
                 const cardBody = card.querySelector('.course-body') || card;
                 cardBody.appendChild(shareBtn);
             });
-            
+
             // Highlight card if accessed via ID hash
-            if(window.location.hash) {
+            if (window.location.hash) {
                 const targetId = window.location.hash.substring(1);
                 const targetCard = document.getElementById(targetId);
-                if(targetCard) {
+                if (targetCard) {
                     // Activate correct tab first if needed
                     const parentSection = targetCard.closest('.content-section');
-                    if(parentSection && !parentSection.classList.contains('active')) {
+                    if (parentSection && !parentSection.classList.contains('active')) {
                         document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
                         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                         parentSection.classList.add('active');
